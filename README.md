@@ -7,5 +7,5 @@
 
 ## How to build, run, clean
 * Run command: make run ./program 
-* Clean command: make clear .
+* Clean command: make clear
 
