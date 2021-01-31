@@ -2,14 +2,9 @@
 	menu.c
 */
 
-/*
-	реалізація бібліотеки menu.h
-*/
 
-/* підключаємо власні бібліотеки */
 #include "menu.h"
 
-/* Функція виводу головного меню */
 void mainMenu()
 {
 	while (1)
@@ -44,7 +39,6 @@ void mainMenu()
 	}
 }
 
-/*  Функція у якій можна обрати тип сортування */
 int typeSorting()
 {
 	while (1)
@@ -79,15 +73,13 @@ int typeSorting()
 		case '5':
 		{
 			deleteArr(); exit(EXIT_SUCCESS);
-			return 0; // ця строка кода не спрацює, це тільки для того, щоб
-			// прибрати попередження: не усюди відбувається повернення
+			return 0;
 		}
 		}
 	}
 }
 
 
-/* Функція в якій можна обрати тип масиву (куб чи вектор) */
 int typeArray()
 {
 	while (1)
@@ -118,14 +110,12 @@ int typeArray()
 		case '3':
 		{
 			deleteArr(); exit(EXIT_SUCCESS);
-			return 0; // ця строка кода не спрацює, це тільки для того, щоб
-					   // прибрати попередження: не усюди відбувається повернення
+			return 0; 
 		}
 		}
 	}
 }
 
-/* Функція у який можна вибрати тип впорядкованості масиву */
 void typeOrderArray(int key)
 {
 	system("clear");
@@ -156,7 +146,6 @@ void typeOrderArray(int key)
 	}
 }
 
-/* Функція яка виводить вікно help */
 void helpWindow()
 {
 	system("clear");

@@ -2,16 +2,8 @@
 	process.c
 */
 
-/*
-	реалізація бібліотеки process.h
-*/
-
-
-
-/* підключаємо власні бібліотеки */
 #include "process.h"
 
-/* Функція яка займається демонстрацією сортування */
 void demoProcess()
 {
 	int key_sorting = typeSorting();
@@ -20,19 +12,15 @@ void demoProcess()
 	system("clear");
 	printf("LOADING...\n");
 
-	//виводимо назву сортування
 	system("clear");
 	printSortName(key_sorting);
 
-	//виводимо масив до сортування;
 	printf("\n==========ARRAY BEFORE==========\n\n");
 	outputArray(key_array);
 	printf("\n================================\n");
 
-	//сортуємо масив
 	goDemoProc(key_array, key_sorting);
 
-	//виводимо масив після сортування
 	printf("\n\n==========ARRAY AFTER===========\n\n");
 	outputArray(key_array);
 	printf("\n================================\n");
@@ -41,16 +29,13 @@ void demoProcess()
 	getch_l();
 }
 
-/* Функція яка займається розрахуванням часу */
 void calcTimeProcess()
 {
 	system("clear");
 	printf("LOADING...\n");
 
-	//викликаємо пакетний режим
 	getRes();
 	
-	//це для виводу розмірів масиву
 	int sz_p = SIZE_P;
 	int sz_n = SIZE_N;
 	int sz = SIZE;
@@ -87,13 +72,10 @@ void calcTimeProcess()
 }
 
 
-/* Функція яка виконує дії які були обрані користувачем наприклад 1 - вектор 2 - сортурувати методов вставки один */
 void goDemoProc(int arr_key, int s_key)
 {
-	//це значить, що користувач обрав куб і ми працюємо з кубом
 	if (arr_key == 1)
 	{
-		//обираємо сортування яка обрав користувач
 		switch (s_key)
 		{
 		case 1:
@@ -110,10 +92,8 @@ void goDemoProc(int arr_key, int s_key)
 			break;
 		}
 	}
-	//це значить, що користувач обрав вектор і ми працюємо з вектором
 	else if (arr_key == 2)
 	{
-		//обираємо сортування яка обрав користувач
 		switch (s_key)
 		{
 		case 1:
@@ -132,7 +112,6 @@ void goDemoProc(int arr_key, int s_key)
 	}
 }
 
-/* Функція яка виводить назву сортвування */
 void printSortName(int key)
 {
 	switch (key)

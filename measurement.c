@@ -2,38 +2,20 @@
 	measurement.c
 */
 
-/*
-	реалізація бібліотеки measurment.h
-*/
-
-/* підключаємо власні бібліотеки */
 #include "measurement.h"
 
 int ***A;
 int *B;
 
-/* визначемо функції які використовуються в межах цього файлу */
-////////////////////////////////////////////////////////////////
-/* Функція для обрахування часу роботи */
 void MeasurementProcessing();
-/* Функція яка заповнює масив результатів одного алгоритму, вираховує час та повертає його */
 clock_t calcRes(int, int, int);
-/* Функція яка заповнює, сортує і повертає час роботи для вимірювання часу */
 clock_t doRes(int, int, int);
-///////////////////////////////////////////////////////////////
 
-/* Функція для обрахування часу роботи */
 void MeasurementProcessing()
 {
 	long int Sum, Min1, Min2, Min3, Max1, Max2, Max3;
 	int imin1, imin2, imin3, imax1, imax2, imax3;
 
-	// Два перших виміри (0-й та 1-й) відкидаються
-	// Серед інших елементів знаходимо три мінімальних та три максимальних
-	// елементи і віднімаємо їх значення із загальної суми
-
-	// Знаходимо мінімальний та максимальний елементи і виключаємо їх з наступних
-	// пошуків, встановивши їм значення -1
 	Sum = Res[2]; 
 	Min1 = Res[2]; 
 	Max1 = Res[2]; 
@@ -57,8 +39,6 @@ void MeasurementProcessing()
 
 	Res[imin1] = -1; Res[imax1] = -1;
 
-	// Знаходимо другий мінімальний та другий максимальний елементи
-	// і виключаємо їх з наступних пошуків, встановивши їм значення -1
 	if (Res[2] == -1) 
 	{
 		Min2 = Res[3]; 
@@ -90,7 +70,6 @@ void MeasurementProcessing()
 	Res[imin2] = -1; 
 	Res[imax2] = -1;
 
-	// Знаходимо третій мінімальний та третій максимальний елементи
 	if (Res[2] == -1)
 	{
 		if (Res[3] == -1) 
@@ -127,11 +106,9 @@ void MeasurementProcessing()
 		}
 	}
 
-	// Сума всіх вимірів мінус три максимальних та три мінімальних значення буде записана до 0-го елемента масива Res
 	Res[0] = (Sum - Min1 - Min2 - Min3 - Max1 - Max2 - Max3) / 20;
 }
 
-/* Функція яка заповнює масив результатів одного алгоритму, вираховує час та повертає його */
 clock_t calcRes(int t_sort, int t_arr, int t_order)
 {
 	for (int i = 0; i < MST_NUMBER; i++)
@@ -144,7 +121,6 @@ clock_t calcRes(int t_sort, int t_arr, int t_order)
 	return Res[0];
 }
 
-/* Функція яка заповнює, сортує і повертає час роботи для вимірювання часу */
 clock_t doRes(int t_sort, int t_arr, int t_order)
 {
 	clock_t resault = 0;
@@ -190,10 +166,8 @@ clock_t doRes(int t_sort, int t_arr, int t_order)
 	return resault;
 }
 
-/* Функція заповненя масиву результатів усіх варіантів вирахування */
 void getRes()
 {
-	/* Тут ми отримуємо результати усього пакетного режиму для виводу у таблицю */
 	res_t[0] = (float) calcRes(SI_1, CUBE, ORDER);	res_t[16] = (float) (calcRes(SS_8, VECTOR, B_ORDER) * 2 * SIZE_P);
 	res_t[1] = (float) calcRes(SI_1, CUBE, B_ORDER);	res_t[17] = (float) (calcRes(SS_8, VECTOR, R_ORDER) * 2 * SIZE_P);
 	res_t[2] = (float) calcRes(SI_1, CUBE, R_ORDER);	res_t[18] = (float) (calcRes(SHELL, VECTOR, ORDER) * 2 * SIZE_P);

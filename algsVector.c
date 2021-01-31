@@ -2,18 +2,14 @@
 	algsVector.c
 */
 
-/*
-	реалізація бібліотеки algorithms.h
-*/
 
-/* підключаємо власні бібліотеки */
 #include "algorithms.h"
 
 int ***A;
 int *B;
 
 
-/* функція яка сортує вектор методом вставки №1 */
+
 clock_t sortSI_1_vector(const int N)
 {
 	int buff;
@@ -44,7 +40,6 @@ clock_t sortSI_1_vector(const int N)
 	return (stop - start);
 }
 
-/* Функція яка сортує вектор методом вибору №8 */
 clock_t sortSS_8_vector(const int N)
 {
 	int L, R;
@@ -105,7 +100,7 @@ clock_t sortSS_8_vector(const int N)
 	return (stop - start);
 }
 
-/* Функція яка сортує вектор методом Шелла */
+
 clock_t sortShell_vector(const int N)
 {
 	int t, j, k, buff;
@@ -151,7 +146,7 @@ clock_t sortShell_vector(const int N)
 	return (stop - start);
 }
 
-/* Функція яка сортує вектор методом Швидкого сортування */
+
 clock_t sortQSort_vector(const int N)
 {
 	clock_t start = clock();
@@ -163,9 +158,6 @@ clock_t sortQSort_vector(const int N)
 	return (stop - start);
 }
 
-/* Примітка: так як функція швидкого сортування рекурсивна
-час виконня вимірюється в межах його виклику а саме у sortQSort_vector() */
-//ця функція у якій алгоритм швидкого сортування
 void QSort_vector(int L, int R)
 {
 	int i, j, x,buff;

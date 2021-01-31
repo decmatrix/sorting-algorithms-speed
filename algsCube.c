@@ -2,17 +2,11 @@
 	algsCube.c
 */
 
-/*
-	реалізація бібліотеки algorithms.h
-*/
-
-/* підключаємо власні бібліотеки */
 #include "algorithms.h"
 
 int ***A;
 int *B;
 
-/* функція яка сортує куб методом вставки №1 */
 clock_t sortSI_1_cube(const int P, const int N)
 {
 	int buff;
@@ -67,7 +61,6 @@ clock_t sortSI_1_cube(const int P, const int N)
 	return (stop - start);
 }
 
-/* Функція яка сортує куб методом вибору №8 */
 clock_t sortSS_8_cube(const int P, const int N)
 {
 	int L, R;
@@ -185,7 +178,6 @@ clock_t sortSS_8_cube(const int P, const int N)
 }
 
 
-/* Функція яка сортує куб методом Шелла */
 clock_t sortShell_cube(const int P, const int N)
 {
 	int t, j, k, buff;
@@ -266,7 +258,6 @@ clock_t sortShell_cube(const int P, const int N)
 	return (stop - start);
 }
 
-/* Функція яка сортує куб методом Швидкого сортування */
 clock_t sortQSort_cube(const int P, const int N)
 {
 	clock_t start = clock();
@@ -286,9 +277,6 @@ clock_t sortQSort_cube(const int P, const int N)
 	return (stop - start);
 }
 
-/* Функції які сортують діагоналі роздільно швидким сортуванням */
-//////////////////////////////////////////////////
-//сортуємо головну діагональ швидким сортуванням
 void sort_QSort_mainDiag(const int p, int L, int R)
 {
 	int i, j, x, buff;
@@ -326,7 +314,6 @@ void sort_QSort_mainDiag(const int p, int L, int R)
 	}
 }
 
-//сортуємо побічну діагональ швидким сортуванням
 void sort_QSort_sideDiag(const int n, const int p, int L, int R)
 {
 	int i, j, x, buff;
@@ -363,4 +350,3 @@ void sort_QSort_sideDiag(const int n, const int p, int L, int R)
 		sort_QSort_sideDiag(n, p, i, R);
 	}
 }
-//////////////////////////////////////////////////

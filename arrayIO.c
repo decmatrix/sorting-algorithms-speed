@@ -2,27 +2,16 @@
 	array.c
 */
 
-/*
-	реалізація бібліотеки arrayIO.h
-*/
 
-/* підключаємо власні бібліотеки */
 #include "arrayIO.h"
 
-/* визначемо функції які використовуються в межах цього файлу */
-////////////////////////////////////////////////////////////////
-/*
-Ця функція для того щоб заповнити увесь куб, так як за умовою сортування діагоналі
-куба, ця функція особлива для куба
-*/
+
 void inputCube();
 ///////////////////////////////////////////////////////////////
 
 int ***A;
 int *B;
 
-
-//функція яка створює динамічні масиви
 void createArr()
 {
     A =(int ***) malloc((SIZE_P)*sizeof(int **));
@@ -40,7 +29,6 @@ void createArr()
 	B = (int *)malloc((SIZE)*sizeof(int));
 }
 
-//функція яка звільнює пам'ять від масиву
 void deleteArr()
 {
     for(int i=0;i<SIZE_P;i++)
@@ -57,15 +45,11 @@ void deleteArr()
 	free(B);
 }
 
-/*
-Ця функція для того щоб заповнити увесь куб, так як за умовою сортування діагоналі
-куба, ця функція особлива для куба
-*/
 void inputCube(int mode)
 {
-	srand((unsigned int) time(NULL)); // задати генератор випадкович чисел
+	srand((unsigned int) time(NULL));
     
-    //якщо ми передаємо цей параметр DEMO, то це значить треба заповнити масив числами 1-10 для демонстрації інакше заповнити великими числами для виміру часу
+    
     if(mode == DEMO)
     {
         for (int p = 0; p < SIZE_P; p++)
@@ -79,7 +63,6 @@ void inputCube(int mode)
             }
         }
     }
-    //для виміру часу заповнюємо куб у великому діапазоні
     else
     {
         for (int p = 0; p < SIZE_P; p++)
@@ -95,13 +78,11 @@ void inputCube(int mode)
     }
 }
 
-/*************ФУНКЦІЇ ЯКІ ЗАПОВНЮЮТЬ МАСИВ (КУБ ЧИ ВЕКТОР)***********/
-/* Фнкція яка займається заповненям масива впорядковано */
 void inputOrderArray(int key, const int P, const int N, const int V, int mode)
 {
 	if (key == CUBE)
 	{
-		inputCube(mode); // заповнити увесь куб випадковими числами
+		inputCube(mode); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
 		for (int p = 0; p < P; p++)
 		{
@@ -121,12 +102,11 @@ void inputOrderArray(int key, const int P, const int N, const int V, int mode)
 	}
 }
 
-/* Функція яка займається заповненям масива обернено впорядковано */
 void inputBOrderArray(int key, const int P, const int N, const int V, int mode)
 {
 	if (key == CUBE)
 	{
-		inputCube(mode); // заповнити увесь куб випадковими числами
+		inputCube(mode);
 
 		for (int p = 0; p < P; p++)
 		{
@@ -146,18 +126,17 @@ void inputBOrderArray(int key, const int P, const int N, const int V, int mode)
 	}
 }
 
-/* Функція яка займається заповненням масива випадково впорядковано */
 void inputROrderArray(int key, const int V, int mode)
 {
-	srand((unsigned int) time(NULL)); // задати генератор випадкович чисел
+	srand((unsigned int) time(NULL));
 
 	if (key == CUBE)
 	{
-		inputCube(mode); // просто заповнити увесь куб випадковими числами
+		inputCube(mode);
 	}
 	else if (key == VECTOR)
 	{
-        //якщо ми передаємо цей параметр DEMO, то це значить треба заповнити масив числами 1-10 для демонстрації інакше заповнити великими числами для виміру часу
+    
         if(mode == DEMO)
         {
            for (int i = 0; i < V; i++)
@@ -174,10 +153,7 @@ void inputROrderArray(int key, const int V, int mode)
         }
 	}
 }
-/********************************************************************/
 
-/*************ФУНКЦІЯ ЯКА ВИВОДИТЬ МАСИВ (КУБ ЧИ ВЕКТОР) ************/
-/* Функція яка виводить масив (не весь в ціялх демонстрації */
 void outputArray(int key)
 {
 	if (key == 1)
@@ -209,5 +185,4 @@ void outputArray(int key)
 		printf("\n");
 	}
 }
-/********************************************************************/
 

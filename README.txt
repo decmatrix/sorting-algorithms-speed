@@ -1,11 +1,11 @@
-Разработка программы и естирование проводилось на OS GNU/Linux Debian 9.4 “stretch”
-Использовался компилятор GNU gcc v.6.3.0 с использованием cmake
-На компьютере Lenovo Legion Y700
-ОЗУ 8 ГБ
-CPU Intel Core i5 6th gen
+# Measuring the speed of different sorting algorithms on three-dimensional arrays
 
-Для запуска программы необходимо открыть терминал в папке с кодом
-и запустить команду make (запустить makefile) для компилирования программы
+## Requires
+* Require OS: OS GNU/Linux Debian 9.4 stretch or more version
+* Require software: GNU gcc v.6.3.0 or more version, cmake 
+* Require CPU: CPU Intel Core i5 6th gen
 
-После компиляции можно набрать команду make run или ./program для запуска программы
-В конце роботы с программой можно ввести make clear для удаления объектных файлов.
+## How to build, run, clean
+* Run command: make run ./program 
+* Clean command: make clear .
+
